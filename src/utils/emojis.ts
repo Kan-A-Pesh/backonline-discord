@@ -7,7 +7,7 @@ export const getRelatedEmoji = async (context: string): Promise<string> => {
     prompt: `Based on the following context, return only ONE emoji that best represents or relates to the content. Do not include any text, explanations, or additional characters - just the single emoji:
 
 Context: ${context}`,
-    maxTokens: 10,
+    maxTokens: 10
   });
 
   // Extract only the first emoji from the response

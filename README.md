@@ -13,15 +13,12 @@ window.webpackChunkdiscord_app.push([
         if (!m.exports || m.exports === window) continue;
         if (m.exports?.getToken) return copy(m.exports.getToken());
         for (let ex in m.exports) {
-          if (
-            m.exports?.[ex]?.getToken &&
-            m.exports[ex][Symbol.toStringTag] !== "IntlMessagesProxy"
-          )
+          if (m.exports?.[ex]?.getToken && m.exports[ex][Symbol.toStringTag] !== "IntlMessagesProxy")
             return copy(m.exports[ex].getToken());
         }
       } catch {}
     }
-  },
+  }
 ]);
 
 window.webpackChunkdiscord_app.pop();
