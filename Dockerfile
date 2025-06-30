@@ -2,20 +2,22 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
-RUN npm install
+COPY package.json pnpm-lock.yaml ./
+RUN npm install -g pnpm
+RUN pnpm install
 
 COPY . .
-RUN npm run build
+RUN pnpm run build
 
 
 FROM node:22-alpine
 
 WORKDIR /app
 
-COPY --from=builder /app/package.json /app/package-lock.json ./
-RUN npm install --only=production
+COPY --from=builder /app/package.json /app/pnpm-lock.yaml ./
+RUN npm install -g pnpm
+RUN pnpm install --only=production
 
 COPY --from=builder /app/dist ./dist
 
-ENTRYPOINT [ "npm", "start" ]
+ENTRYPOINT [ "pnpm", "start" ]
