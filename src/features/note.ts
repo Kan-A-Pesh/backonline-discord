@@ -7,8 +7,8 @@ import { getRelatedEmoji } from "../utils/emojis";
 async function setCustomStatus() {
   const payload = await fetch("https://api.api-ninjas.com/v1/dadjokes", {
     headers: {
-      "X-API-KEY": process.env.NINJA_API_KEY!,
-    },
+      "X-API-KEY": process.env.NINJA_API_KEY!
+    }
   }).then((res) => res.json());
 
   const joke = payload[0]["joke"];
@@ -18,7 +18,7 @@ async function setCustomStatus() {
 
   client.user!.setPresence({
     status: "online",
-    activities: [custom],
+    activities: [custom]
   });
 
   console.log("Changed status to ", emoji, joke);
@@ -26,10 +26,10 @@ async function setCustomStatus() {
 
 CronJob.from({
   start: true,
-  cronTime: isDev ? "*/1 * * * *" : "*/3 * * * *",
+  cronTime: isDev ? "*/1 * * * *" : "*/5 * * * *",
   // (DEV) every 1 minute
-  // (PROD) every 3 minutes
-  onTick: setCustomStatus,
+  // (PROD) every 5 minutes
+  onTick: setCustomStatus
 });
 
 setCustomStatus();
