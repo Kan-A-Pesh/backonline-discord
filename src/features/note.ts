@@ -26,7 +26,9 @@ async function setCustomStatus() {
 
 CronJob.from({
   start: true,
-  cronTime: isDev ? "*/1 * * * *" : "*/15 * * * *", // (DEV) every 1 minute, (PROD) every 15 minutes
+  cronTime: isDev ? "*/1 * * * *" : "*/3 * * * *",
+  // (DEV) every 1 minute
+  // (PROD) every 3 minutes
   onTick: setCustomStatus,
 });
 

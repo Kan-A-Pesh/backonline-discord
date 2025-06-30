@@ -29,6 +29,9 @@ importers:
       tsx:
         specifier: ^4.20.3
         version: 4.20.3
+      zod:
+        specifier: ^3.25.67
+        version: 3.25.67
     devDependencies:
       '@types/node':
         specifier: ^24.0.7

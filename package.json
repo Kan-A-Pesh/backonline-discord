@@ -6,11 +6,18 @@
     "cron": "^4.3.1",
     "discord.js-selfbot-v13": "^3.6.1",
     "dotenv": "^17.0.0",
-    "tsx": "^4.20.3"
+    "tsx": "^4.20.3",
+    "zod": "^3.25.67"
   },
   "scripts": {
     "start": "tsx src/index.ts",
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "db:up": "docker compose -f docker/db.compose.yml up -d",
+    "db:down": "docker compose -f docker/db.compose.yml down",
+    "db:studio": "drizzle-kit studio",
+    "db:generate": "drizzle-kit generate && prettier --write migrations",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push"
   },
   "devDependencies": {
     "@types/node": "^24.0.7"
