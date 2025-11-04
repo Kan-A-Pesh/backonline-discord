@@ -7,7 +7,7 @@ services:
       - 0.0.0.0:6379:6379
 
   postgres:
-    image: postgres:latest
+    image: postgres:17
     ports:
       - 0.0.0.0:5432:5432
     environment:

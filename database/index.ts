@@ -15,3 +15,4 @@ const db = drizzle(pool, {
 type Database = typeof db;
 
 export { db, type Database };
+export { desc } from "drizzle-orm";
