@@ -1,6 +1,11 @@
 import { db, desc } from "@database";
 import { statuses } from "@database/schema";
 
+export const metadata = {
+  title: "Kan's Status Queue",
+  description: "View the current status queue for Kan's stream"
+};
+
 export default async function Home() {
   const statusItems = await db.select().from(statuses).orderBy(desc(statuses.createdAt));
 
