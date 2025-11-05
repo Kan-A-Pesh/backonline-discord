@@ -24,7 +24,7 @@
     "db:up": "docker compose -f docker/db.compose.yml up -d",
     "db:down": "docker compose -f docker/db.compose.yml down",
     "db:studio": "drizzle-kit studio",
-    "db:generate": "drizzle-kit generate && prettier --write migrations",
+    "db:generate": "drizzle-kit generate && prettier --write database/migrations",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push"
   },
