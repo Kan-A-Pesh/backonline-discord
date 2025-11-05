@@ -10,7 +10,7 @@ export default async function Home() {
   const statusItems = await db.select().from(statuses).orderBy(desc(statuses.createdAt));
 
   return (
-    <div className="flex min-h-screen items-start pt-16 justify-center font-mono bg-black">
+    <div className="flex min-h-screen items-start pt-16 justify-center font-mono bg-black text-white">
       <main className="flex flex-col gap-4 w-full max-w-2xl p-6">
         <h1 className="text-4xl font-bold mb-4">Kan's Status Queue</h1>
         <div className="flex flex-col gap-4 border border-gray-500 p-4">
