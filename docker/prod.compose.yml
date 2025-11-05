@@ -15,7 +15,6 @@ services:
       - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
     depends_on:
       - redis
-      - postgres
 
   redis:
     image: redis:latest
