@@ -8,7 +8,7 @@ services:
     environment:
       - NODE_ENV=production
       - REDIS_URL=redis://redis:6379
-      - DATABASE_URL=postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-postgres}
+      - DATABASE_URL=${DATABASE_URL}
 
       - TOKEN=${TOKEN}
       - NINJA_API_KEY=${NINJA_API_KEY}
@@ -22,16 +22,5 @@ services:
     volumes:
       - redis_data:/data
 
-  postgres:
-    image: postgres:17
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB:-postgres}
-      SERVICE_URL_DATABASE_5432:
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
 volumes:
   redis_data:
-  postgres_data:
